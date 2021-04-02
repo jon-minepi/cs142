@@ -1,4 +1,4 @@
 class PhotosController < ApplicationController
-  def indexp4
+  def index
   end
 end

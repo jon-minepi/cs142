@@ -1,16 +1,18 @@
 <h1>This is all of <%= @user.full_name %>'s cool photos</h1>
 
 <% @photos.each do |photo| %>
-  <div><%= image_tag photo.file_name %></div>
-  <p>Created at: <%= photo.date_time %></p><br>
-  <h2>Comments:</h2><br>
-  <ul>
-    <% photo.all_comments.each do |comment| %>
-      <li>
-        <p>Comment Created at: <%= comment.date_time %> </p>
-        <p>By <%= link_to comment.user.full_name, user_path(comment.user) %></p>
-        <p><%= comment.comment %></p>
-      </li>
-    <% end %>
-  </ul>
+  <div class="photoContainer">
+    <%= image_tag photo.file_name %>
+    <p>Created at: <%= photo.date_time %></p><br>
+    <h2>Comments:</h2><br>
+    <ul>
+      <% photo.all_comments.each do |comment| %>
+        <li>
+          <p>Comment Created at: <%= comment.date_time %> </p>
+          <p>By <%= link_to comment.user.full_name, user_path(comment.user) %></p>
+          <p><%= comment.comment %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

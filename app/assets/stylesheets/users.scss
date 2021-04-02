@@ -1,3 +1,11 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+div.photoContainer {
+  border: 1px solid #2E2F30;
+  margin: 1rem;
+  max-width: 80%;
+  img {
+    max-width: 90%;
+  }
+}
