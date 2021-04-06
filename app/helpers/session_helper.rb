@@ -2,7 +2,7 @@ module SessionHelper
   def log_in(login)
     session[:user] = User.find_by(login: login)
   end
-  
+
   def logged_in?
     session[:user].present?
   end
