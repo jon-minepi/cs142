@@ -13,16 +13,15 @@ class UsersController < ApplicationController
   def login
 
   end
-  
+
   def post_login
-    # TODO login action
+
     @user = log_in(params[:login])
     redirect_to @user
   end
 
   def logout
-    # TODO logout logic
     log_out
-    redirect_to user_login_path
+    redirect_to users_login_path
   end
 end
