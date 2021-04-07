@@ -9,7 +9,7 @@
       <% photo.all_comments.each do |comment| %>
         <li>
           <p>Comment Created at: <%= comment.date_time %> </p>
-          <p>By <%= link_to comment.user.full_name, user_path(comment.parent_user)
+          <p>By <%= link_to comment.user.full_name, user_path(comment.user)
           %></p>
           <p><%= comment.comment %></p>
         </li>
