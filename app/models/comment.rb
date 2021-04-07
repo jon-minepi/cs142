@@ -4,11 +4,11 @@ class Comment < ApplicationRecord
 
   validates :comment, :photo_id, :user_id, :date_time, presence: true
 
-  def user
+  def parent_user
     User.find(user_id)
   end
 
-  def photo
+  def parent_photo
     Photo.find(photo_id)
   end
 

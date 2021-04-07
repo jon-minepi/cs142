@@ -12,11 +12,10 @@ class CommentsController < ApplicationController
     @comment.date_time = Time.now
 
     @photo = Photo.find(params[:id])
-
     respond_to do |format|
       if @comment.save
         format.html { redirect_to user_path(Photo.find(params[:id])[:user_id]) }
-        format.json { render :show, status: :created, location: @comment.photo }
+        format.json { render :show, status: :created, location: @comment.parent_photo }
       else
         puts @comment.errors.full_messages
         format.html { render :new, status: :unprocessable_entity }
