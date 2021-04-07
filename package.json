@@ -1,5 +1,5 @@
 {
-  "name": "cs142",
+  "name": "cs142p4",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

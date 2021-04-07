@@ -1,0 +1,23 @@
+<div class="navbar">
+  <div class="greeting">
+    <p>
+      Hi,
+      <% if logged_in? %>
+        <%= current_user_name %>!
+      <% else %>
+        stranger!
+      <% end %>
+    </p>
+  </div>
+  <!--      TODO: conditional rendering of Login/Logout, along with username-->
+  <div class="linkbar">
+    <p>
+      <%= link_to "Index", users_index_path %>
+      <% if logged_in? %>
+        <%= link_to "Logout", users_logout_path, method: :post %>
+      <% else %>
+        <%= link_to "Login", users_login_path %>
+      <% end %>
+    </p>
+  </div>
+</div>

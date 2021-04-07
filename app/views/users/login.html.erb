@@ -1,0 +1,9 @@
+<div class="login-form">
+  <%= form_with(url: users_post_login_path) do |f| %>
+    <div class="field">
+      <%= f.label :login %>
+      <%= f.text_field :login %>
+    </div>
+    <%= f.submit "Login" %>
+  <% end %>
+</div>
