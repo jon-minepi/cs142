@@ -1,6 +1,6 @@
 <div class="photoContainer">
   <%= image_tag @photo[:file_name] %>
-  <h2>Append a @comment to this fabulous photo</h2>
+  <h2>Append a comment to this fabulous photo</h2>
   <%= form_with(model: @comment, url: comments_create_path ) do |form| %>
     <% if @comment.errors.any? %>
       <div id="error_explanation">
