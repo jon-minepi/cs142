@@ -20,4 +20,7 @@ module SessionHelper
   def current_user_id
     @user[:id]
   end
+  def current_user
+    @user
+  end
 end

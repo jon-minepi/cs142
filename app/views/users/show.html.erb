@@ -13,6 +13,7 @@
           <p><%= comment.comment %></p>
         </li>
       <% end %>
+      <%= link_to "Add a new comment", comments_new_path(photo) %>
     </ul>
   </div>
 <% end %>

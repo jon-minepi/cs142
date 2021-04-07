@@ -11,11 +11,9 @@ class UsersController < ApplicationController
   end
 
   def login
-
   end
 
   def post_login
-
     @user = log_in(params[:login])
     redirect_to @user
   end
