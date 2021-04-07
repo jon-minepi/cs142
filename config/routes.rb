@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'comments/new/:id', to: 'comments#new', as: 'comments_new'
+  post 'comments/create/:id', to: 'comments#create', as: 'comments_create'
+
   get '/users/index'
   get '/photos/index/:id', to: 'users#show', as: 'user'
 
