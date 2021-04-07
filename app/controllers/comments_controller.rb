@@ -11,6 +11,8 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user_id
     @comment.date_time = Time.now
 
+    @photo = Photo.find(params[:id])
+
     respond_to do |format|
       if @comment.save
         format.html { redirect_to user_path(Photo.find(params[:id])[:user_id]) }

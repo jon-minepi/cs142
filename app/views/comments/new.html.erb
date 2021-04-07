@@ -4,11 +4,11 @@
   <%= form_with(model: @comment, url: comments_create_path ) do |form| %>
     <% if @comment.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(comment.errors.count, "error") %> prohibited this
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this
           product from being saved:</h2>
-        <ul>
+        <ul id="error-list">
           <% @comment.errors.each do |error| %>
-            <li><%= error.full_message %></li>
+            <li id="error-item"><%= error.full_message %></li>
           <% end %>
         </ul>
       </div>
