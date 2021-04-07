@@ -1,7 +1,6 @@
 module SessionHelper
   def log_in(login)
-    @user = User.find_by(login: login)
-    session[:user] = @user
+    session[:user] = User.find_by(login: login)[:id]
   end
 
   def logged_in?
@@ -10,17 +9,21 @@ module SessionHelper
 
   def log_out
     session.delete(:user)
-    @user = nil
   end
 
   def current_user_name
-    @user[:first_name]
+    begin
+      User.find(session[:user])[:first_name]
+    rescue ActiveRecord::RecordNotFound
+      "Unknown"
+    end
   end
 
   def current_user_id
-    @user[:id]
+    session[:user]
   end
+
   def current_user
-    @user
+    User.find(session[:user])
   end
 end
