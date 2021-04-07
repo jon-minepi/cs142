@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   end
 
   def post_login
-    @user = log_in(params[:login])
-    redirect_to @user
+    log_in(params[:login])
+    redirect_to current_user
   end
 
   def logout
