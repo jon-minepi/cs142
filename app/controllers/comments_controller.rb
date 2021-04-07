@@ -1,27 +1,26 @@
 class CommentsController < ApplicationController
   include SessionHelper
-
   def new
     @photo = Photo.find(params[:id])
-
     @comment = Comment.new
-    @comment.photo = @photo
-    @comment.user = current_user
-    @comment.date_time = Time.now
   end
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.photo_id = params[:id]
+    @comment.user_id = current_user_id
+    @comment.date_time = Time.now
+
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment.photo }
+        format.html { redirect_to user_path(Photo.find(params[:id])[:user_id]) }
         format.json { render :show, status: :created, location: @comment.photo }
       else
         puts @comment.errors.full_messages
         format.html { render :new, status: :unprocessable_entity }
         format.json {
-          render json: @comment.errors, status:
-            :unprocessable_entity }
+          render json: @comment.errors,
+                 status: :unprocessable_entity }
       end
     end
   end
@@ -29,6 +28,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:photo, :user, :date_time, :comment)
+    params.require(:comment).permit(:comment)
   end
 end
