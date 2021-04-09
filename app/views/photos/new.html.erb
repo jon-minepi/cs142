@@ -1,4 +1,8 @@
 <h2>Consider uploading a photo</h2>
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+
 <%= form_with(model: @photo, url: photos_create_path) do |form|  %>
   <% if @photo.errors.any? %>
     <div id="error_explanation">

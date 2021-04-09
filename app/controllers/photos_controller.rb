@@ -5,8 +5,12 @@ class PhotosController < ApplicationController
   end
 
   def create
+    if !logged_in?
+      redirect_to photos_new_path, notice: "No user logged in, please log in"
+      return
+    end
+
     uploaded_io = params[:photo][:image]
-    p uploaded_io
     File.open(Rails.root.join('app', 'assets', 'images', uploaded_io.original_filename), 'w') do |file|
       file.write(uploaded_io.read.force_encoding(Encoding::UTF_8))
     end
