@@ -75,5 +75,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   #
   #
-  config.web_console.whitelisted_ips = %w( 0.0.0.0/0 ::/0 )
+  config.web_console.allowed_ips = %w( 0.0.0.0/0 ::/0 )
 end
