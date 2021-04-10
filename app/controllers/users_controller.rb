@@ -14,8 +14,14 @@ class UsersController < ApplicationController
   end
 
   def post_login
-    log_in(params[:login])
-    redirect_to current_user
+    # TODO: check for user not found
+    @user = User.find_by(login: params[:login])
+    if @user.password_valid? params[:password]
+      log_in(params[:login])
+      redirect_to @user
+    else
+      redirect_to users_login_path, notice: "Invalid password"
+    end
   end
 
   def logout
