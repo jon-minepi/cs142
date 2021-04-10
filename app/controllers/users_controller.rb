@@ -22,4 +22,10 @@ class UsersController < ApplicationController
     log_out
     redirect_to users_login_path
   end
+
+  def new
+
+  end
+
+  def create
 end

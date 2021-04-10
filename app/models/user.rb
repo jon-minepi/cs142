@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def generate_password_digest(password, salt)
     Digest::SHA1.hexdigest "#{password}#{salt}"
   end
+
+  def password_valid?(password)
+    password_digest == generate_password_digest(password, salt)
+  end
 end
