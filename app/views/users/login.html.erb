@@ -1,9 +1,18 @@
+<h2>Login yourself</h2>
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
 <div class="login-form">
   <%= form_with(url: users_post_login_path) do |f| %>
     <div class="field">
       <%= f.label :login %>
       <%= f.text_field :login %>
     </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+    </div>
     <%= f.submit "Login" %>
   <% end %>
 </div>
+<%= link_to "Register HERE", users_new_path %>
