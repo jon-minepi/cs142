@@ -1,15 +1,15 @@
-<h2>Consider uploading a photo</h2>
+<h2>Create a new user!</h2>
 <% if notice %>
   <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<%= form_with(model: @photo, url: photos_create_path) do |form|  %>
-  <% if @photo.errors.any? %>
+<%= form_with(model: @user, url: users_create_path) do |form|  %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this
         product from being saved:</h2>
       <ul id="error-list">
-        <% @photo.errors.each do |error| %>
+        <% @user.errors.each do |error| %>
           <li id="error-item"><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -17,8 +17,24 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.label :login %>
+    <%= form.text_field :login %>
+  </div>
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= form.label :password1 %>
+    <%= form.text_field :password1 %>
+  </div>
+  <div class="field">
+    <%= form.label :password2 %>
+    <%= form.text_field :password2 %>
   </div>
   <div class="actions">
     <%= form.submit %>
